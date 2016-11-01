@@ -1,6 +1,6 @@
 export class Persoon {
 
-  public bsn: string;
+  public burgerservicenummer: string;
   public geboortedatum: string;
   public geslacht: string;
 }
