@@ -12,6 +12,7 @@ import 'rxjs/add/operator/catch';
 })
 export class AanleveringFormComponent implements OnInit {
   aanlevering:Aanlevering = new Aanlevering();
+  identificatienummerHouder:string;
 
   submitted = false;
   showForm = true;
@@ -44,7 +45,7 @@ export class AanleveringFormComponent implements OnInit {
     this.aanlevering.ouder.geboortedatum = "1980-01-01";
     this.aanlevering.ouder.geslacht = "1";
 
-    this.aanlevering.identificatienummerHouder = "12345678";
+    this.identificatienummerHouder = "12345678";
 
   }
 
@@ -55,6 +56,7 @@ export class AanleveringFormComponent implements OnInit {
 
     let aanvraagAanlevering = new AanvraagAanlevering("12345");
     aanvraagAanlevering.aanvraag = this.aanlevering;
+    aanvraagAanlevering.identificatienummerHouder = this.identificatienummerHouder;
 
     let aanlevermoment = aanvraagAanlevering.aanvraag.aanlevermoment;
 
