@@ -59,11 +59,18 @@ export class AanleveringFormComponent implements OnInit {
     let aanlevermoment = aanvraagAanlevering.aanvraag.aanlevermoment;
 
     aanvraagAanlevering.aanvraag.aanlevermoment = aanvraagAanlevering.aanvraag.aanlevermoment + "T11:40:10.1+08:00";
-    this.aanleveringService.saveAanvraagAanlevering(aanvraagAanlevering).subscribe(data => console.log(data));
+    this.aanleveringService.saveAanvraagAanlevering(aanvraagAanlevering).subscribe(data => {
+      this.displayForm(false);
+
+      console.log(data)
+    });
     aanvraagAanlevering.aanvraag.aanlevermoment = aanlevermoment;
   }
 
 
+  displayForm(show:boolean) {
+    this.showForm = show;
+  }
 
   onChangeGeslacht(selectedValue, modelProperty) {
     modelProperty.geslacht = selectedValue;
