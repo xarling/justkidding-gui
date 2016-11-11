@@ -8,6 +8,8 @@ export class AanvraagAanlevering {
     this.auditContextID = auditContextID;
   }
 
+  public identificatienummerHouder: string;
+  
   public trackAndTraceUUID: string;
   public auditContextID: string;
   public aanvraag: Aanlevering;
