@@ -16,6 +16,7 @@ export class AanleveringFormComponent implements OnInit {
 
   submitted = false;
   showForm = true;
+  ontvangstBevestiging = "N";
 
   constructor(private aanleveringService: AanleveringService) {
 
@@ -23,6 +24,7 @@ export class AanleveringFormComponent implements OnInit {
 
 
   ngOnInit() {
+    this.ontvangstBevestiging = "N";
     this.aanlevering.begindatum = "2016-01-01";
     this.aanlevering.einddatum = "2020-01-01";
     this.aanlevering.dagtekening = "2016-04-01";
@@ -64,6 +66,7 @@ export class AanleveringFormComponent implements OnInit {
     this.aanleveringService.saveAanvraagAanlevering(aanvraagAanlevering).subscribe(data => {
       this.displayForm(false);
 
+      this.ontvangstBevestiging = data;
       console.log(data)
     });
     aanvraagAanlevering.aanvraag.aanlevermoment = aanlevermoment;
@@ -72,6 +75,11 @@ export class AanleveringFormComponent implements OnInit {
 
   displayForm(show:boolean) {
     this.showForm = show;
+  }
+
+  resetForm() {
+    this.ngOnInit();
+    this.displayForm(true);
   }
 
   onChangeGeslacht(selectedValue, modelProperty) {
