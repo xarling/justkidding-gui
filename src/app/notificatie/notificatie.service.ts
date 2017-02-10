@@ -13,8 +13,8 @@ export class NotificatieService {
   }
 
 
-  getNotificaties(begindatum: string, einddatum: string) {
-    return this.http.get(this.url + "?eindMoment=" + einddatum + "&beginMoment=" + begindatum).map(res => {
+  getNotificaties(begindatum: string, einddatum: string, trackAndTraceId: string) {
+    return this.http.get(this.url + "?eindMoment=" + einddatum + "&beginMoment=" + begindatum + "&trackAndTraceId=" + trackAndTraceId).map(res => {
       let body = res.json();
       return body || [];
     });

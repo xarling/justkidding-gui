@@ -12,6 +12,7 @@ export class NotificatieFormComponent implements OnInit {
   notificaties:Array<Notificatie> = [];
   einddatum:string = "2016-11-26";
   begindatum:string = "2016-11-25";
+  trackAndTraceId: string;
 
   constructor(private notificatieService: NotificatieService) {
 
@@ -25,7 +26,7 @@ export class NotificatieFormComponent implements OnInit {
   }
 
   haalNotificaties() {
-    this.notificatieService.getNotificaties(this.begindatum, this.einddatum).subscribe(data => {
+    this.notificatieService.getNotificaties(this.begindatum, this.einddatum, this.trackAndTraceId).subscribe(data => {
       this.notificaties = data;
     });
   }
