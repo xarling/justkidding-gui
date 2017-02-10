@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
-import {AanvraagAanlevering} from "./aanvraagaanlevering";
+
+import {AanvragenBeslissingVergoeding} from "./aanvraagbeslissingvergoeding";
 
 
 @Injectable()
@@ -13,8 +14,8 @@ export class AanleveringService {
   constructor(protected http:Http) { }
 
 
-  saveAanvraagAanlevering(aanvraagAanlevering: AanvraagAanlevering) {
-    return this.http.post(this.url, aanvraagAanlevering).map(res => {
+  saveAanvraagAanlevering(aanvragenBeslissingVergoeding: AanvragenBeslissingVergoeding) {
+    return this.http.post(this.url, aanvragenBeslissingVergoeding).map(res => {
       let body = res.json();
       return body || {};
     });

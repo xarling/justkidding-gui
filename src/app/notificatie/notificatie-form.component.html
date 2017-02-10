@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Notificaties</h1>
+    <hr>
+
+    <form (ngSubmit)="onSubmit()" #notificatieForm="ngForm" class="form-inline">
+      <div class="form-group">
+        <label for="begindatum" class="form-label"></label>
+        <input type="date" class="form-control" id="begindatum" [(ngModel)]="begindatum" name="begindatum" required>
+      </div>
+
+      <div class="form-group">
+        <label for="begindatum" class="form-label">-</label>
+        <input type="date" class="form-control" id="einddatum" [(ngModel)]="einddatum" name="einddatum" required>
+      </div>
+
+      <button type="submit" class="btn btn-default pull-right">Update</button>
+
+
+    </form>
+
+    <hr>
+
+    <table class="table table-bordered table-condensed">
+      <thead>
+      <tr>
+        <th>track&trace</th>
+        <th>goed</th>
+        <th>registratiemoment</th>
+        <th>foutmeldingen</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr *ngFor="let notificatie of notificaties">
+        <td [innerHtml]="notificatie.trackEnTraceId"></td>
+        <td [innerHtml]="notificatie.aanleveringGoedgekeurd"></td>
+        <td [innerHtml]="notificatie.registratiemoment"></td>
+        <td>
+          <ul *ngFor="let foutmelding of notificatie.foutmeldings">
+            <span [innerHtml]="foutmelding.foutcode"></span>: <span [innerHtml]="foutmelding.fouttekst"></span>
+          </ul>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>
+
+
+

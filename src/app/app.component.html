@@ -1,6 +1,25 @@
-<aanlevering-form>
 
 
+<div class="container">
 
-</aanlevering-form>
+  <div class="row">
+  &nbsp;
+  </div>
+  <div class="row">
+    <ul class="nav nav-tabs">
+      <li role="presentation" [ngClass]="{'active': showAanlevering}"><a href="#" (click)="displayAanlevering(true)">Aanlevering</a>
+      </li>
+      <li role="presentation" [ngClass]="{'active': showFactuur}"><a href="#">Kostenoverzicht</a></li>
+      <li role="presentation" [ngClass]="{'active': showNotificatie}"><a href="#" (click)="displayNotificatie(true)">Notificatie</a>
+      </li>
+    </ul>
+  </div>
+
+  <aanlevering-form *ngIf="showAanlevering"></aanlevering-form>
+
+
+  <notificatie-form *ngIf="showNotificatie"></notificatie-form>
+
+
+</div>
 
